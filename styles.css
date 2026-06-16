@@ -109,6 +109,34 @@ a { color: inherit; text-decoration: none; }
 
 .nav-cta { padding: 10px 20px; font-size: 0.9rem; }
 
+.nav a.active { color: var(--orange-dark); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle-open span:nth-child(2) { opacity: 0; }
+.nav-toggle-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
 /* Hero */
 .hero {
   position: relative;
@@ -447,11 +475,14 @@ address { font-style: normal; margin-bottom: 16px; }
   font-weight: 700;
 }
 
-.location-socials a {
+.social-badge {
   background: var(--paper);
   box-shadow: var(--shadow);
   padding: 8px 16px;
   border-radius: 999px;
+  font-weight: 700;
+  opacity: 0.6;
+  cursor: help;
 }
 
 .location-map {
@@ -471,9 +502,64 @@ address { font-style: normal; margin-bottom: 16px; }
 
 .footer-fine { opacity: 0.6; font-size: 0.85rem; margin: 0; }
 
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--orange);
+  color: #fff;
+  font-size: 1.3rem;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  z-index: 40;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover { background: var(--orange-dark); }
+
 /* Responsive */
 @media (max-width: 880px) {
-  .nav { display: none; }
+  .nav-toggle { display: flex; }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: max-height 0.25s ease;
+  }
+
+  .nav.nav-open { max-height: 360px; }
+
+  .nav a {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .nav-cta { display: none; }
+
+  .header-inner { position: relative; }
+
   .about-grid, .hours-grid, .location-grid { grid-template-columns: 1fr; }
   .menu-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .review-grid { grid-template-columns: 1fr; }
