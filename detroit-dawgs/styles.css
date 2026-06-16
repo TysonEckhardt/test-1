@@ -296,22 +296,6 @@ nav.main-nav a.current { color: var(--red); border-bottom: 3px solid var(--yello
   clip-path: polygon(0 100%, 5% 40%, 15% 100%, 25% 40%, 35% 100%, 45% 40%, 55% 100%, 65% 40%, 75% 100%, 85% 40%, 95% 100%, 100% 40%, 100% 100%);
 }
 
-/* Photo placeholder blocks (swap with real photos) */
-.photo-placeholder {
-  background: repeating-linear-gradient(135deg, var(--sand), var(--sand) 10px, #fff 10px, #fff 20px);
-  border: 2px dashed var(--teal);
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--teal);
-  font-weight: 700;
-  font-size: 0.95rem;
-  min-height: 220px;
-  padding: 16px;
-}
-
 /* Sections */
 section { padding: 64px 0; }
 .section-alt { background: #fff; }
@@ -504,4 +488,4 @@ footer.site-footer {
   gap: 16px;
 }
 @media (max-width: 760px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
-.gallery-grid .photo-placeholder { min-height: 150px; aspect-ratio: 1/1; }
+.gallery-grid img { width: 100%; height: 100%; }
