@@ -44,4 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  document.querySelectorAll('img.photo-tile').forEach(img => {
+    img.addEventListener('error', () => {
+      const fallback = document.createElement('div');
+      fallback.className = 'photo-tile';
+      fallback.dataset.caption = img.dataset.caption || '';
+      fallback.textContent = '📷';
+      img.replaceWith(fallback);
+    }, { once: true });
+  });
 });
