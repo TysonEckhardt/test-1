@@ -95,8 +95,7 @@ img { max-width: 100%; display: block; }
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--red);
-  color: #fff;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
