@@ -95,6 +95,7 @@ img { max-width: 100%; display: block; }
   width: 42px;
   height: 42px;
   border-radius: 50%;
+  object-fit: cover;
   flex-shrink: 0;
   display: flex;
   align-items: center;
